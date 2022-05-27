@@ -1,0 +1,6 @@
+export const NEXT_QUESTION = "NEXT_QUESTION"
+export const SET_SCORE = "SET_SCORE"
+export const SET_ANSWERS = "SET_ANSWERS"
+export const ANS_HISTORY = "ANS_HISTORY"
+export const INCORRECT_ANS_ERR = "INCORRECT_ANS_ERR"
+export const GET_QUIZ_DATA = "GET_QUIZ_DATA"
