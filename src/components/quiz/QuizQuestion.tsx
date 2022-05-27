@@ -60,7 +60,7 @@ export const QuizQuestion:React.FC<Props> = ({quizQuestion}) => {
 
     const clearTimer = (e:any) => {
  
-        setTimer('00:00:10');
+        setTimer('00:00:59');
   
         if (Ref.current) clearInterval(Ref.current);
         const id = setInterval(() => {
@@ -71,7 +71,7 @@ export const QuizQuestion:React.FC<Props> = ({quizQuestion}) => {
   
     const getDeadTime = () => {
         let deadline = new Date();
-        deadline.setSeconds(deadline.getSeconds() + 10);
+        deadline.setSeconds(deadline.getSeconds() + 59);
         return deadline;
     }
 
