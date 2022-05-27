@@ -80,9 +80,8 @@ export const QuizQuestion:React.FC<Props> = ({quizQuestion}) => {
     }
 
     useEffect(() => {
-        dispatch(NextQuestion(quizQuestion[questionindex]));
-        clearTimer(getDeadTime())
-        setQuestionindex(questionindex + 1)
+         setTimer('00:00:00');
+        nextClick()
     }, [])
 
     const nextClick = () => {
@@ -96,15 +95,18 @@ export const QuizQuestion:React.FC<Props> = ({quizQuestion}) => {
             navigate("/score")
         }
 
-        if (!correctanswersData) {
-            dispatch(setAnsHistory( questionData.question.question, "Not anwers"))
-
-        } else if (correctanswersData !== questionData.question.correctAnswer) {
-            dispatch(setAnsHistory( questionData.question.question, "false"))
-            setincorrectAns(true)
-        } else {
-            dispatch(setAnsHistory( questionData.question.question, "true"))
+        if(questionData.question.question){
+            if (!correctanswersData) {
+                dispatch(setAnsHistory(questionData.question.question, "Not anwers"))
+    
+            } else if (correctanswersData !== questionData.question.correctAnswer) {
+                dispatch(setAnsHistory( questionData.question.question, "false"))
+                setincorrectAns(true)
+            } else {
+                dispatch(setAnsHistory( questionData.question.question, "true"))
+            }
         }
+
     }
 
     const handleNextClick = () => {
